@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>TEST CANVAS</title>
+    <style>
+        #testA {
+            background-color: antiquewhite;
+            display: block;
+            width: 500px;
+           height: 40px;
+        }
+        #testB {
+            width: 700px;
+           height: 40px;
+            display: block;
+            background-color: blueviolet;
+        }
+        .dno {
+            display:none
+        }
+    </style>
+    <script src="test.js"></script>
+
+</head>
+<body>
+<p>
+    Doc :
+    <a href="https://codepen.io/noontz/pen/PooOyjO">codepen</a>
+    <a href="https://stackoverflow.com/questions/11112321/how-to-save-canvas-as-png-image">stackoverglow pour blob</a>
+    <a href="http://html2canvas.hertzen.com/">plugin html2canvas</a>
+    <a href="https://try-puppeteer.appspot.com/">Mérite d'être creusé</a>
+    <a href="https://www.sceditor.com/">Pour éditer les text area</a>
+    <a href="https://www.npmjs.com/package/ie11-custom-properties">polyfill IE11 faut voir ce que c'est</a>
+    <a href="https://dircom.cci-info.fr/outils/template-creator/basic/">Maquette</a>
+</p>
+
+<div id="testA">TestA</div>
+<div id="testB">Test B</div>
+<button id="btn">
+    ScreenDownload
+</button>
+
+</body>
+<script src="test.js"></script>
+<script>
+    var button = document.getElementById('btn')
+
+    button.onclick = function(e) {
+        console.log(e)
+        html2canvas(document.querySelector("#testB")).then(canvas => {
+            document.body.appendChild(canvas).setAttribute('id', 'canvas')
+            canvas.toBlob(function(blob) {
+                let url = URL.createObjectURL(blob);
+                downloadLink.setAttribute('href', url);
+                downloadLink.click();
+            });
+            let downloadLink = document.createElement('a');
+            downloadLink.setAttribute('download', 'CanvasAsImage.png');
+            downloadLink.click();
+            // var w=window.open('about:blank','image from canvas');
+            // w.document.write("<img src='"+img+"' alt='from canvas'/>");
+        });
+    }
+
+</script>
+</html>
