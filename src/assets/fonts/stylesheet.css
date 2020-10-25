@@ -34,3 +34,15 @@
     font-display: swap;
 }
 
+@font-face {
+  font-family: 'Spartan-SemiBold';
+  src: url('Spartan-SemiBold.eot');
+  src: url('Spartan-SemiBold.eot?#iefix') format('embedded-opentype'),
+  url('Spartan-SemiBold.woff2') format('woff2'),
+  url('Spartan-SemiBold.woff') format('woff'),
+  url('Spartan-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

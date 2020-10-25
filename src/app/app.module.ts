@@ -11,6 +11,7 @@ import { Template4Component } from './templates/template4/template4.component';
 import { Template5Component } from './templates/template5/template5.component';
 import { Template6Component } from './templates/template6/template6.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Template5Component,
     Template6Component,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
