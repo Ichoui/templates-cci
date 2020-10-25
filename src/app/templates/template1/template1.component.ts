@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'cci-template1',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Template1Component implements OnInit {
 
-  constructor() { }
+  title = this.route.snapshot.data['title']
 
+  constructor(private route: ActivatedRoute) { }
   ngOnInit(): void {
   }
 

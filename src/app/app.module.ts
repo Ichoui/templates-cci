@@ -10,6 +10,7 @@ import { Template3Component } from './templates/template3/template3.component';
 import { Template4Component } from './templates/template4/template4.component';
 import { Template5Component } from './templates/template5/template5.component';
 import { Template6Component } from './templates/template6/template6.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { Template6Component } from './templates/template6/template6.component';
     Template5Component,
     Template6Component,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
