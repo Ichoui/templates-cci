@@ -1,7 +1,10 @@
 @import 'src/styles/variables';
 
-h2 {
+h1, h2, h3, h4, h5, h6 {
   font-family: $bold-spartan;
+}
+
+h2.main-title {
   text-align: center;
 }
 
@@ -16,10 +19,29 @@ h2 {
 }
 
 .templates {
+  position: relative;
   border: 1px solid red;
+  margin: 0 2%;
+  width: 29%;
+  height: 29%;
+  h4 {
+    position: absolute;
+    top: -20px;
+    margin:0 0 0 10px
+  }
 
-  width: 30%;
-  height: 30%;
+  &.photo {
+  }
+  &.chiffre-cle {
+  }
+  &.angeda {
+  }
+  &.filieres {
+  }
+  &.event {
+  }
+  &.actu {
+  }
   &:hover {
     cursor: pointer;
   }
