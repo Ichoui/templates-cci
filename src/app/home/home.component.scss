@@ -1,0 +1,26 @@
+@import 'src/styles/variables';
+
+h2 {
+  font-family: $bold-spartan;
+  text-align: center;
+}
+
+.block-template {
+  display: flex;
+  width: 70vw;
+  height: 50vh;
+  border: 1px solid black;
+  margin: 0 15vw;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.templates {
+  border: 1px solid red;
+
+  width: 30%;
+  height: 30%;
+  &:hover {
+    cursor: pointer;
+  }
+}
