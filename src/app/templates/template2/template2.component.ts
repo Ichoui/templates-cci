@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { MatSliderChange } from '@angular/material/slider';
+import html2canvas from 'html2canvas';
 
 export enum Template2Background {
   IMAGE_PURPLE = 'image-purple',
@@ -18,7 +19,7 @@ export enum Template2Background {
 })
 export class Template2Component implements OnInit {
   title = this.route.snapshot.data['title'];
-  sizeNumber = 112;
+  sizeNumber = 100;
   sizeKeyword = 30;
   sizeText = 30;
   Template2Background = Template2Background;
@@ -44,8 +45,22 @@ export class Template2Component implements OnInit {
   }
 
   materSliderInput(event: MatSliderChange, fromSlider: string) {
-    fromSlider === 'text' ? this.sizeText = event.value : '';
-    fromSlider === 'keyword' ? this.sizeKeyword = event.value: '';
-    fromSlider === 'number' ? this.sizeNumber = event.value : '';
+    fromSlider === 'text' ? (this.sizeText = event.value) : '';
+    fromSlider === 'keyword' ? (this.sizeKeyword = event.value) : '';
+    fromSlider === 'number' ? (this.sizeNumber = event.value) : '';
+  }
+
+  download() {
+    html2canvas(document.querySelector('#generated-bloc')).then((canvas) => {
+      let t = document.body.appendChild(canvas).setAttribute('id', 'canvas');
+      canvas.toBlob(function (blob) {
+        let url = URL.createObjectURL(blob);
+        downloadLink.setAttribute('href', url);
+        downloadLink.click();
+      });
+      let downloadLink = document.createElement('a');
+      downloadLink.setAttribute('download', 'template-chiffre-cle.png');
+      downloadLink.click();
+    });
   }
 }

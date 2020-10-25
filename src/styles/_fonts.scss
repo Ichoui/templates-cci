@@ -46,3 +46,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Spartan-Light';
+  src: url('../assets/fonts/Spartan-Light.eot');
+  src: url('../assets/fonts/Spartan-Light.eot?#iefix') format('embedded-opentype'),
+  url('../assets/fonts/Spartan-Light.woff2') format('woff2'),
+  url('../assets/fonts/Spartan-Light.woff') format('woff'),
+  url('../assets/fonts/Spartan-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

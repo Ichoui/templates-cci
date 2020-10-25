@@ -17,6 +17,7 @@ mat-radio-group {
 #generated-bloc {
   .number {
     color: $primary;
+    font-family: $semibold-spartan !important;
     &[class*='purple'] {
       color: $white;
     }

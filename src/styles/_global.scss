@@ -1,9 +1,12 @@
+@import "./variables";
+
 body {
   overflow: hidden;
   background-image: url('/assets/img/cercle-raye.svg');
   background-repeat: repeat-y;
   background-size: cover;
   background-color: #dad8d8;
+  font-family: $regular-spartan !important;
 }
 
 .layout {
@@ -13,4 +16,9 @@ body {
 .sections-title {
   text-transform: uppercase;
   text-align: center;
+}
+
+
+body [class^='mat-'], body [class*=' mat-'] {
+  font-family: $regular-spartan;
 }
