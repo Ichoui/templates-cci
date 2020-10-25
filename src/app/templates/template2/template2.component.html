@@ -12,15 +12,16 @@
 </section>
 
 <section id="bottom" [formGroup]="templateGroup">
-  <mat-tab-group mat-align-tabs="center" animationDuration="0s" dynamicHeight>
+  <mat-tab-group mat-align-tabs="center" animationDuration="0s" dynamicHeight color="primary">
     <mat-tab label="Image">
-      <ng-container>
-
       <mat-radio-group formControlName="image">
-        <mat-radio-button [value]="false">Sans photo</mat-radio-button>
-        <mat-radio-button [value]="true">Avec photo</mat-radio-button>
+        <mat-radio-button [value]="false" color="primary">Sans photo</mat-radio-button>
+        <mat-radio-button [value]="true" color="primary">Avec photo</mat-radio-button>
       </mat-radio-group>
-      </ng-container>
+      <mat-radio-group formControlName="color">
+        <mat-radio-button [value]="false" color="primary">Sans photo</mat-radio-button>
+        <mat-radio-button [value]="true" color="primary">Avec photo</mat-radio-button>
+      </mat-radio-group>
     </mat-tab>
     <mat-tab label="Chiffre">
       <mat-form-field class="example-full-width">

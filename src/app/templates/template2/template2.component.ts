@@ -12,6 +12,7 @@ export class Template2Component implements OnInit {
 
   templateGroup = this.fb.group({
     image: [false],
+    color: [false],
     number: ['50%'],
     keyword: ['Mot Clé'],
     text: ['Votre texte ...']
