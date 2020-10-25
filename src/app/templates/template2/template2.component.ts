@@ -18,9 +18,9 @@ export enum Template2Background {
 })
 export class Template2Component implements OnInit {
   title = this.route.snapshot.data['title'];
-  sizeNumber = 32;
-  sizeKeyword = 20;
-  sizeText = 20;
+  sizeNumber = 112;
+  sizeKeyword = 30;
+  sizeText = 30;
   Template2Background = Template2Background;
 
   templateGroup = this.fb.group({
@@ -47,7 +47,5 @@ export class Template2Component implements OnInit {
     fromSlider === 'text' ? this.sizeText = event.value : '';
     fromSlider === 'keyword' ? this.sizeKeyword = event.value: '';
     fromSlider === 'number' ? this.sizeNumber = event.value : '';
-    console.log(event.value);
-    console.log(this.sizeText);
   }
 }
