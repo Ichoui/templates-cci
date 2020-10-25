@@ -16,6 +16,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { MatSliderModule } from '@angular/material/slider';
     Template5Component,
     Template6Component,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule, MatRadioModule, ReactiveFormsModule, MatInputModule, MatSliderModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule, MatRadioModule, ReactiveFormsModule, MatInputModule, MatSliderModule, MatButtonModule],
   providers: [],
   bootstrap: [AppComponent],
 })

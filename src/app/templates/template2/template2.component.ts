@@ -52,7 +52,6 @@ export class Template2Component implements OnInit {
 
   download() {
     html2canvas(document.querySelector('#generated-bloc')).then((canvas) => {
-      let t = document.body.appendChild(canvas).setAttribute('id', 'canvas');
       canvas.toBlob(function (blob) {
         let url = URL.createObjectURL(blob);
         downloadLink.setAttribute('href', url);

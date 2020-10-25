@@ -1,3 +1,5 @@
+@import "./variables";
+
 section#bottom {
   position: fixed;
   left: 50%;
@@ -17,5 +19,12 @@ section#bottom {
     mat-slider {
       width: 80%;
     }
+  }
+
+  .download {
+    margin-bottom: 15px;
+    transform: translate(-50%, 0);
+    left: 50%;
+    font-family: $bold-spartan;
   }
 }
