@@ -2,9 +2,20 @@ section#bottom {
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom : 0;
-  width: 80vw;
+  bottom: 0;
+  width: 60vw;
   height: 30vh;
   //border: 1px solid red;
 
+  .example-full-width {
+    width: 100%;
+  }
+
+  div.slider {
+    text-align: center;
+    margin-top: 15px;
+    mat-slider {
+      width: 80%;
+    }
+  }
 }

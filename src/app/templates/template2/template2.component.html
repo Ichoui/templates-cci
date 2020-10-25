@@ -4,23 +4,45 @@
 
 <section id="top">
   <div id="generated-bloc">
-    {{ templateGroup.value.image }}
-    {{ templateGroup.value.number }}
-    {{ templateGroup.value.keywork }}
-    {{ templateGroup.value.text }}
+    <img src="assets/img/template2/chiffre-clef-{{ templateGroup.value.color }}.png" alt="" />
+    <div class="text {{ templateGroup.value.color }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
+      <span [style.fontSize]="sizeText + 'px'">
+        {{ templateGroup.value.text }}
+      </span>
+    </div>
+    <div class="number {{ templateGroup.value.color }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
+      <span [style.fontSize]="sizeNumber + 'px'">
+        {{ templateGroup.value.number }}
+      </span>
+    </div>
+    <div class="keyword {{ templateGroup.value.color }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
+      <span [style.fontSize]="sizeKeyword + 'px'">
+        {{ templateGroup.value.keyword }}
+      </span>
+    </div>
   </div>
 </section>
 
 <section id="bottom" [formGroup]="templateGroup">
-  <mat-tab-group mat-align-tabs="center" animationDuration="0s" dynamicHeight color="primary">
+  <mat-tab-group mat-align-tabs="center" animationDuration="0s" color="primary">
     <mat-tab label="Image">
       <mat-radio-group formControlName="image">
         <mat-radio-button [value]="false" color="primary">Sans photo</mat-radio-button>
         <mat-radio-button [value]="true" color="primary">Avec photo</mat-radio-button>
       </mat-radio-group>
-      <mat-radio-group formControlName="color">
-        <mat-radio-button [value]="false" color="primary">Sans photo</mat-radio-button>
-        <mat-radio-button [value]="true" color="primary">Avec photo</mat-radio-button>
+      <mat-radio-group formControlName="color" *ngIf="templateGroup.value.image">
+        <mat-radio-button [value]="Template2Background.IMAGE_PURPLE" color="primary">Photo violette</mat-radio-button>
+        <mat-radio-button [value]="Template2Background.IMAGE_YELLOW" color="primary">Photo jaune</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-radio-group formControlName="color" *ngIf="!templateGroup.value.image">
+        <mat-radio-button [value]="Template2Background.BRUT_PURPLE" color="primary">
+          Arrière-plan violet
+        </mat-radio-button>
+        <mat-radio-button [value]="Template2Background.BRUT_YELLOW" color="primary">
+          Arrière-plan jaune
+        </mat-radio-button>
+        <mat-radio-button [value]="Template2Background.BRUT_WHITE" color="primary">Arrière-plan blanc</mat-radio-button>
       </mat-radio-group>
     </mat-tab>
     <mat-tab label="Chiffre">
@@ -28,18 +50,51 @@
         <mat-label>Chiffre</mat-label>
         <input matInput placeholder="50%" formControlName="number" />
       </mat-form-field>
+      <div class="slider">
+        <mat-slider
+          (change)="materSliderInput($event, 'number')"
+          thumbLabel
+          min="40"
+          max="80"
+          step="1"
+          [value]="sizeNumber"
+          color="primary"
+        ></mat-slider>
+      </div>
     </mat-tab>
     <mat-tab label="Mot Clé">
       <mat-form-field class="example-full-width">
         <mat-label>Chiffre</mat-label>
         <input matInput placeholder="Mot Clé" formControlName="keyword" />
       </mat-form-field>
+      <div class="slider">
+        <mat-slider
+          (change)="materSliderInput($event, 'keyword')"
+          thumbLabel
+          min="10"
+          max="40"
+          step="1"
+          [value]="sizeKeyword"
+          color="primary"
+        ></mat-slider>
+      </div>
     </mat-tab>
     <mat-tab label="Texte">
       <mat-form-field class="example-full-width">
         <mat-label>Chiffre</mat-label>
-        <input matInput placeholder="Votre texte ..." formControlName="text" />
+        <textarea matInput placeholder="Votre texte ..." formControlName="text" maxlength="164"></textarea>
       </mat-form-field>
+      <div class="slider">
+        <mat-slider
+          (change)="materSliderInput($event, 'text')"
+          thumbLabel
+          min="10"
+          max="35"
+          step="1"
+          [value]="sizeText"
+          color="primary"
+        ></mat-slider>
+      </div>
     </mat-tab>
   </mat-tab-group>
 </section>

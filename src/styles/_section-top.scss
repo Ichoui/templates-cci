@@ -1,13 +1,24 @@
 section#top {
-  width: 50vw;
-  height: 50vh;
-  //border: 1px solid red;
+  position: relative;
+  width: 550px;
+  height: 550px;
+  //height: 55vh;
   margin: 0 auto;
 
   #generated-bloc {
-    width: 100%;
-    height: 100%;
-    border: 1px solid blue;
-
+    position: relative;
+    > div {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      span {
+        text-align: center;
+    }
   }
 }

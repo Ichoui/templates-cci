@@ -1,9 +1,13 @@
 body {
   overflow: hidden;
+  background-image: url('/assets/img/cercle-raye.svg');
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-color: #dad8d8;
 }
 
 .layout {
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .sections-title {
