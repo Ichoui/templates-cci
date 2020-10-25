@@ -13,8 +13,6 @@ export interface TemplateModel {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
-
   template: TemplateModel[] = [
     { class: 'photo', router: 'photo', title: 'Template Photo' },
     { class: 'chiffre-cle', router: 'chiffre-cle', title: 'Chiffre-Clé' },

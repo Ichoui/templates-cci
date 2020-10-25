@@ -1,7 +1,8 @@
 <h2 class="main-title">Template creator - CCI</h2>
 <div class="block-template">
-  <div class="templates" (click)="routage('photo')">abcde</div>
   <div *ngFor="let tp of template" (click)="routage(tp.router)" class="templates {{ tp.class }}">
     <h4>{{ tp.title }}</h4>
   </div>
 </div>
+
+
