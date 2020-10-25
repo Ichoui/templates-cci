@@ -12,6 +12,9 @@ import { Template5Component } from './templates/template5/template5.component';
 import { Template6Component } from './templates/template6/template6.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatRadioModule } from '@angular/material/radio';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     Template5Component,
     Template6Component,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule, MatRadioModule, ReactiveFormsModule, MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'cci-template2',
@@ -9,7 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 export class Template2Component implements OnInit {
   title = this.route.snapshot.data['title']
 
-  constructor(private route: ActivatedRoute) { }
+  templateGroup = this.fb.group({
+    image: [false],
+    number: ['50%'],
+    keyword: ['Mot Clé'],
+    text: ['Votre texte ...']
+  });
+
+  constructor(private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }

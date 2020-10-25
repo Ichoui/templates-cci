@@ -3,14 +3,42 @@
 </h2>
 
 <section id="top">
-  <div id="generated-bloc"></div>
+  <div id="generated-bloc">
+    {{ templateGroup.value.image }}
+    {{ templateGroup.value.number }}
+    {{ templateGroup.value.keywork }}
+    {{ templateGroup.value.text }}
+  </div>
 </section>
 
-<section id="bottom">
-  <mat-tab-group mat-align-tabs="center" animationDuration="0s">
-    <mat-tab label="Images"> Content 1 </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
-  </mat-tab-group>
+<section id="bottom" [formGroup]="templateGroup">
+  <mat-tab-group mat-align-tabs="center" animationDuration="0s" dynamicHeight>
+    <mat-tab label="Image">
+      <ng-container>
 
+      <mat-radio-group formControlName="image">
+        <mat-radio-button [value]="false">Sans photo</mat-radio-button>
+        <mat-radio-button [value]="true">Avec photo</mat-radio-button>
+      </mat-radio-group>
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="Chiffre">
+      <mat-form-field class="example-full-width">
+        <mat-label>Chiffre</mat-label>
+        <input matInput placeholder="50%" formControlName="number" />
+      </mat-form-field>
+    </mat-tab>
+    <mat-tab label="Mot Clé">
+      <mat-form-field class="example-full-width">
+        <mat-label>Chiffre</mat-label>
+        <input matInput placeholder="Mot Clé" formControlName="keyword" />
+      </mat-form-field>
+    </mat-tab>
+    <mat-tab label="Texte">
+      <mat-form-field class="example-full-width">
+        <mat-label>Chiffre</mat-label>
+        <input matInput placeholder="Votre texte ..." formControlName="text" />
+      </mat-form-field>
+    </mat-tab>
+  </mat-tab-group>
 </section>
