@@ -4,18 +4,18 @@
 
 <section id="top">
   <div id="generated-bloc">
-    <img src="assets/img/template2/chiffre-clef-{{ templateGroup.value.color }}.png" alt="" />
-    <div class="text {{ templateGroup.value.color }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
+    <img src="assets/img/template2/chiffre-clef-{{ templateGroup.value.variante }}.png" alt="" />
+    <div class="text {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
       <span [style.fontSize]="sizeText + 'px'">
         {{ templateGroup.value.text }}
       </span>
     </div>
-    <div class="number {{ templateGroup.value.color }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
+    <div class="number {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
       <span [style.fontSize]="sizeNumber + 'px'">
         {{ templateGroup.value.number }}
       </span>
     </div>
-    <div class="keyword {{ templateGroup.value.color }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
+    <div class="keyword {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
       <span [style.fontSize]="sizeKeyword + 'px'">
         {{ templateGroup.value.keyword }}
       </span>
@@ -23,28 +23,24 @@
   </div>
 </section>
 
-
 <section id="bottom" [formGroup]="templateGroup">
-<button mat-raised-button class="download" color="primary" (click)="download()">Télécharger</button>
+  <button mat-raised-button class="download" color="primary" (click)="download()">Télécharger</button>
   <mat-tab-group mat-align-tabs="center" animationDuration="0s" color="primary">
-    <mat-tab label="Image">
-      <mat-radio-group formControlName="image">
-        <mat-radio-button [value]="false" color="primary">Sans photo</mat-radio-button>
-        <mat-radio-button [value]="true" color="primary">Avec photo</mat-radio-button>
-      </mat-radio-group>
-      <mat-radio-group formControlName="color" *ngIf="templateGroup.value.image">
-        <mat-radio-button [value]="Template2Background.IMAGE_PURPLE" color="primary">Photo violette</mat-radio-button>
-        <mat-radio-button [value]="Template2Background.IMAGE_YELLOW" color="primary">Photo jaune</mat-radio-button>
+    <mat-tab label="Modèles">
+      <mat-radio-group formControlName="modele">
+        <mat-radio-button [value]="false" color="primary">Modèle 1</mat-radio-button>
+        <mat-radio-button [value]="true" color="primary">Modèle 2</mat-radio-button>
       </mat-radio-group>
 
-      <mat-radio-group formControlName="color" *ngIf="!templateGroup.value.image">
-        <mat-radio-button [value]="Template2Background.BRUT_PURPLE" color="primary">
-          Arrière-plan violet
-        </mat-radio-button>
-        <mat-radio-button [value]="Template2Background.BRUT_YELLOW" color="primary">
-          Arrière-plan jaune
-        </mat-radio-button>
-        <mat-radio-button [value]="Template2Background.BRUT_WHITE" color="primary">Arrière-plan blanc</mat-radio-button>
+      <mat-radio-group formControlName="variante" *ngIf="!templateGroup.value.modele">
+        <mat-radio-button [value]="Template2Background.BRUT_PURPLE" color="primary">Variante 1</mat-radio-button>
+        <mat-radio-button [value]="Template2Background.BRUT_YELLOW" color="primary">Variante 2</mat-radio-button>
+        <mat-radio-button [value]="Template2Background.BRUT_WHITE" color="primary">Variante 3</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-radio-group formControlName="variante" *ngIf="templateGroup.value.modele">
+        <mat-radio-button [value]="Template2Background.IMAGE_PURPLE" color="primary">Variante 1</mat-radio-button>
+        <mat-radio-button [value]="Template2Background.IMAGE_YELLOW" color="primary">Variante 2</mat-radio-button>
       </mat-radio-group>
     </mat-tab>
     <mat-tab label="Chiffre">
@@ -99,5 +95,4 @@
       </div>
     </mat-tab>
   </mat-tab-group>
-
 </section>

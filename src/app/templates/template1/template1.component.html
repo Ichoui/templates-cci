@@ -3,9 +3,98 @@
 </h2>
 
 <section id="top">
-  a
+  <div id="generated-bloc">
+    <img src="assets/img/template1/basic-{{ templateGroup.value.variante }}.png" alt="" />
+    <div class="text {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.modele ? 'image' : 'brut'">
+      <span [style.fontSize]="sizeText + 'px'">
+        {{ templateGroup.value.text }}
+      </span>
+    </div>
+    <div class="number {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.modele ? 'image' : 'brut'">
+      <span [style.fontSize]="sizeName + 'px'">
+        {{ templateGroup.value.name }}
+      </span>
+    </div>
+    <div class="keyword {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.modele ? 'image' : 'brut'">
+      <span [style.fontSize]="sizeKeyword + 'px'">
+        {{ templateGroup.value.keyword }}
+      </span>
+    </div>
+  </div>
 </section>
 
-<section id="bottom">
-  b
+<section id="bottom" [formGroup]="templateGroup">
+  <button mat-raised-button class="download" color="primary" (click)="download()">Télécharger</button>
+  <mat-tab-group mat-align-tabs="center" animationDuration="0s" color="primary">
+    <mat-tab label="Modèles">
+      <mat-radio-group formControlName="modele">
+        <mat-radio-button [value]="false" color="primary">Modèle 1</mat-radio-button>
+        <mat-radio-button [value]="true" color="primary">Modèle 2</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-radio-group formControlName="variante" *ngIf="!templateGroup.value.modele">
+        <mat-radio-button [value]="Template1Background.CENTER_WHITE" color="primary">Variante 1</mat-radio-button>
+        <mat-radio-button [value]="Template1Background.CENTER_YELLOW" color="primary">Variante 2</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-radio-group formControlName="variante" *ngIf="templateGroup.value.modele">
+        <mat-radio-button [value]="Template1Background.SIDE_WHITE" color="primary">Variante 1</mat-radio-button>
+        <mat-radio-button [value]="Template1Background.SIDE_YELLOW" color="primary">Variante 2</mat-radio-button>
+      </mat-radio-group>
+    </mat-tab>
+    <mat-tab label="Nom">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nom</mat-label>
+        <input matInput placeholder="50%" formControlName="name" />
+      </mat-form-field>
+      <div class="slider">
+        <mat-slider
+          (change)="materSliderInput($event, 'name')"
+          thumbLabel
+          min="40"
+          max="120"
+          step="1"
+          [value]="sizeName"
+          color="primary"
+        ></mat-slider>
+      </div>
+    </mat-tab>
+    <mat-tab label="Mot Clé">
+      <mat-form-field class="example-full-width">
+        <mat-label>Mot clé</mat-label>
+        <input matInput placeholder="Mot Clé" formControlName="keyword" />
+      </mat-form-field>
+      <div class="slider">
+        <mat-slider
+          (change)="materSliderInput($event, 'keyword')"
+          thumbLabel
+          min="15"
+          max="50"
+          step="1"
+          [value]="sizeKeyword"
+          color="primary"
+        ></mat-slider>
+      </div>
+    </mat-tab>
+    <mat-tab label="Texte">
+      <mat-form-field class="example-full-width">
+        <mat-label>Texte</mat-label>
+        <textarea matInput placeholder="Votre texte ..." formControlName="text" maxlength="164"></textarea>
+      </mat-form-field>
+      <div class="slider">
+        <mat-slider
+          (change)="materSliderInput($event, 'text')"
+          thumbLabel
+          min="15"
+          max="50"
+          step="1"
+          [value]="sizeText"
+          color="primary"
+        ></mat-slider>
+      </div>
+    </mat-tab>
+    <mat-tab label="Image de fond">
+
+    </mat-tab>
+  </mat-tab-group>
 </section>

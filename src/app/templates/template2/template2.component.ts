@@ -25,8 +25,8 @@ export class Template2Component implements OnInit {
   Template2Background = Template2Background;
 
   templateGroup = this.fb.group({
-    image: [false],
-    color: [Template2Background.BRUT_PURPLE],
+    modele: [false],
+    variante: [Template2Background.BRUT_PURPLE],
     number: ['50%'],
     keyword: ['Mot Clé'],
     text: ['Votre texte ...'],
@@ -35,11 +35,11 @@ export class Template2Component implements OnInit {
   constructor(private route: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.templateGroup.controls['image'].valueChanges.subscribe((e) => {
-      if (this.templateGroup.value.image) {
-        this.templateGroup.controls['color'].setValue(this.Template2Background.BRUT_PURPLE);
+    this.templateGroup.controls['modele'].valueChanges.subscribe(() => {
+      if (this.templateGroup.value.modele) {
+        this.templateGroup.controls['variante'].setValue(this.Template2Background.BRUT_PURPLE);
       } else {
-        this.templateGroup.controls['color'].setValue(this.Template2Background.IMAGE_PURPLE);
+        this.templateGroup.controls['variante'].setValue(this.Template2Background.IMAGE_PURPLE);
       }
     });
   }

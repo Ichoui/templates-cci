@@ -1,0 +1,67 @@
+@import 'src/styles';
+
+:host ::ng-deep .mat-tab-body-wrapper {
+  height: 15vh;
+  display: flex;
+  margin-top: 15px;
+}
+
+#generated-bloc {
+  .number {
+    color: $primary;
+    font-family: $semibold-spartan !important;
+    &[class*='purple'] {
+      color: $white;
+    }
+    &.image {
+      width: 221px;
+      height: 40px;
+      left: 49%;
+      top: 39%;
+    }
+    &.brut {
+      width: 250px;
+      height: 43px;
+      top: 33%;
+      left: 27%;
+    }
+  }
+
+  .keyword {
+    color: $white;
+    &[class*='purple'] {
+      color: $primary;
+    }
+    &.image {
+      width: 199px;
+      height: 54px;
+      top: 49%;
+      left: 51%;
+    }
+    &.brut {
+      width: 261px;
+      height: 69px;
+      top: 47%;
+      left: 26%;
+    }
+  }
+
+  .text {
+    color: $primary;
+    line-height: 1;
+    &[class*='purple'] {
+      color: $white;
+    }
+    overflow: hidden;
+    width: 261px;
+    height: 90px;
+    &.image {
+      top: 61%;
+      left: 44%;
+    }
+    &.brut {
+      left: 27%;
+      top: 63%;
+    }
+  }
+}
