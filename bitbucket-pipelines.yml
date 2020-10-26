@@ -1,0 +1,30 @@
+definitions:
+  caches:
+    npm: $HOME/.npm
+  steps:
+    - step: &buildTemplates
+        name: Running build templates
+        image: node:10.15.3
+        caches:
+          - node
+          - npm
+        script:
+          - npm i
+          - npm run build --prod
+        artifacts:
+          - www/**
+    - step: &deploy
+        name: Deploiement template CCI
+        image: instrumentisto/rsync-ssh:latest
+        caches:
+        script:
+          - rsync -zvrSlh --delete-after --stats --exclude-from=deployment-exclude-list.txt $BITBUCKET_CLONE_DIR/www/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+pipelines:
+  tags:
+
+    preprod_*:
+      - step:
+          <<: *buildTemplates
+      - step:
+          <<: *deploy
+          deployment: preprod
