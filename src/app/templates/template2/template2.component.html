@@ -4,7 +4,7 @@
 
 <section id="top">
   <div id="generated-bloc">
-    <img src="assets/img/template2/chiffre-clef-{{ templateGroup.value.variante }}.png" alt="" />
+    <img class="template-img" src="assets/img/template2/chiffre-clef-{{ templateGroup.value.variante }}.png" alt="" />
     <div class="text {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.image ? 'image' : 'brut'">
       <span [style.fontSize]="sizeText + 'px'">
         {{ templateGroup.value.text }}

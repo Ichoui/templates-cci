@@ -19,10 +19,11 @@ export enum Template1Background {
 export class Template1Component implements OnInit {
   Template1Background = Template1Background;
   title = this.route.snapshot.data['title'];
+  imgUploaded;
 
-  sizeName = 50;
+  sizeName = 26;
   sizeKeyword = 30;
-  sizeText = 30;
+  sizeText = 20;
 
   templateGroup = this.fb.group({
     modele: [false],
@@ -47,7 +48,7 @@ export class Template1Component implements OnInit {
   materSliderInput(event: MatSliderChange, fromSlider: string) {
     fromSlider === 'text' ? (this.sizeText = event.value) : '';
     fromSlider === 'keyword' ? (this.sizeKeyword = event.value) : '';
-    fromSlider === 'number' ? (this.sizeName = event.value) : '';
+    fromSlider === 'name' ? (this.sizeName = event.value) : '';
   }
 
   download() {
@@ -61,5 +62,17 @@ export class Template1Component implements OnInit {
       downloadLink.setAttribute('download', 'template-chiffre-cle.png');
       downloadLink.click();
     });
+  }
+
+  uploadImage(files) {
+    if (files) {
+      console.log(files);
+      let reader = new FileReader();
+
+      reader.readAsDataURL(files.target.files[0])
+      reader.onload = ev => {
+        this.imgUploaded = ev.target.result;
+      }
+    }
   }
 }

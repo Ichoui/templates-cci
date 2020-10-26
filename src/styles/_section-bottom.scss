@@ -21,6 +21,17 @@ section#bottom {
     }
   }
 
+  .upload-label {
+    margin-top: 15px;
+    cursor: pointer;
+    background: $primary;
+    color: $white;
+    padding: 10px 15px;
+    height: 40px;
+    line-height: 40px;
+
+  }
+
   .download {
     margin-bottom: 15px;
     transform: translate(-50%, 0);

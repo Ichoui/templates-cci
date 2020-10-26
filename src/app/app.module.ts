@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,18 @@ import { MatButtonModule } from '@angular/material/button';
     Template5Component,
     Template6Component,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule, MatRadioModule, ReactiveFormsModule, MatInputModule, MatSliderModule, MatButtonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSliderModule,
+    MatButtonModule,
+    DragDropModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

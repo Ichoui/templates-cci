@@ -4,13 +4,14 @@
 
 <section id="top">
   <div id="generated-bloc">
-    <img src="assets/img/template1/basic-{{ templateGroup.value.variante }}.png" alt="" />
+    <img class="template-img" src="assets/img/template1/basic-{{ templateGroup.value.variante }}.png" alt="template" />
+    <img *ngIf="imgUploaded" class="uploaded-img" src="{{ imgUploaded }}" alt="upload" cdkDrag />
     <div class="text {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.modele ? 'image' : 'brut'">
       <span [style.fontSize]="sizeText + 'px'">
         {{ templateGroup.value.text }}
       </span>
     </div>
-    <div class="number {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.modele ? 'image' : 'brut'">
+    <div class="name {{ templateGroup.value.variante }}" [ngClass]="templateGroup.value.modele ? 'image' : 'brut'">
       <span [style.fontSize]="sizeName + 'px'">
         {{ templateGroup.value.name }}
       </span>
@@ -51,8 +52,8 @@
         <mat-slider
           (change)="materSliderInput($event, 'name')"
           thumbLabel
-          min="40"
-          max="120"
+          min="12"
+          max="36 "
           step="1"
           [value]="sizeName"
           color="primary"
@@ -85,8 +86,8 @@
         <mat-slider
           (change)="materSliderInput($event, 'text')"
           thumbLabel
-          min="15"
-          max="50"
+          min="12"
+          max="36"
           step="1"
           [value]="sizeText"
           color="primary"
@@ -94,7 +95,14 @@
       </div>
     </mat-tab>
     <mat-tab label="Image de fond">
-
+      <label class="upload-label" for="upload">Télécharger une image de fond (taille 550*550)</label>
+      <input
+        type="file"
+        id="upload"
+        accept="image/png, image/jpeg, image/jpg"
+        (change)="uploadImage($event)"
+        style="display: none"
+      />
     </mat-tab>
   </mat-tab-group>
 </section>

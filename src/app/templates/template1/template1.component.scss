@@ -7,61 +7,53 @@
 }
 
 #generated-bloc {
-  .number {
-    color: $primary;
-    font-family: $semibold-spartan !important;
-    &[class*='purple'] {
-      color: $white;
+
+  .keyword {
+    color: $white;
+    font-family: $medium-spartan !important;
+      width: 253px;
+      height: 73px;
+    &[class*='white'] {
+      color: $primary;
     }
     &.image {
-      width: 221px;
-      height: 40px;
-      left: 49%;
-      top: 39%;
+      top: 26.6%;
+      left: 53.6%;
     }
     &.brut {
-      width: 250px;
-      height: 43px;
-      top: 33%;
+      top: 26%;
       left: 27%;
     }
   }
 
-  .keyword {
-    color: $white;
-    &[class*='purple'] {
-      color: $primary;
-    }
+  .name {
+    color: $primary;
+    font-family: $semibold-spartan !important;
+      width: 253px;
+      height: 35px;
     &.image {
-      width: 199px;
-      height: 54px;
-      top: 49%;
-      left: 51%;
+      left: 53.6%;
+      top: 40.5%;
     }
     &.brut {
-      width: 261px;
-      height: 69px;
-      top: 47%;
-      left: 26%;
+      top: 41%;
+      left: 27%;
     }
   }
 
   .text {
     color: $primary;
     line-height: 1;
-    &[class*='purple'] {
-      color: $white;
-    }
     overflow: hidden;
-    width: 261px;
-    height: 90px;
+      width: 253px;
+      height: 82px;
     &.image {
-      top: 61%;
-      left: 44%;
+      top: 47%;
+      left: 53.6%;
     }
     &.brut {
       left: 27%;
-      top: 63%;
+      top: 47%;
     }
   }
 }
