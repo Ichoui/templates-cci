@@ -44,11 +44,12 @@
       </mat-radio-group>
     </mat-tab>
     <mat-tab label="Nom">
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline" class="example-full-width">
         <mat-label>Nom</mat-label>
-        <input matInput placeholder="50%" formControlName="name" />
+        <input matInput formControlName="name" />
       </mat-form-field>
       <div class="slider">
+        <div>Taille :</div>
         <mat-slider
           (change)="materSliderInput($event, 'name')"
           thumbLabel
@@ -61,11 +62,12 @@
       </div>
     </mat-tab>
     <mat-tab label="Mot Clé">
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline" class="example-full-width">
         <mat-label>Mot clé</mat-label>
-        <input matInput placeholder="Mot Clé" formControlName="keyword" />
+        <input matInput formControlName="keyword" />
       </mat-form-field>
       <div class="slider">
+        <div>Taille :</div>
         <mat-slider
           (change)="materSliderInput($event, 'keyword')"
           thumbLabel
@@ -78,11 +80,12 @@
       </div>
     </mat-tab>
     <mat-tab label="Texte">
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline" class="example-full-width">
         <mat-label>Texte</mat-label>
-        <textarea matInput placeholder="Votre texte ..." formControlName="text" maxlength="164"></textarea>
+        <textarea matInput formControlName="text" maxlength="164"></textarea>
       </mat-form-field>
       <div class="slider">
+        <div>Taille :</div>
         <mat-slider
           (change)="materSliderInput($event, 'text')"
           thumbLabel

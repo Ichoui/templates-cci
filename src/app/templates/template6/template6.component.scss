@@ -1,0 +1,7 @@
+@import 'src/styles';
+
+:host ::ng-deep .mat-tab-body-wrapper {
+  height: 15vh;
+  display: flex;
+  margin-top: 15px;
+}

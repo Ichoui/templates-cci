@@ -3,9 +3,143 @@
 </h2>
 
 <section id="top">
-  a
+  <div id="generated-bloc">
+    <img class="template-img" src="assets/img/template3/agenda-{{ templateGroup.value.variante }}.png" />
+    <div class="startDay image {{ templateGroup.value.startDay }}">
+      <span [style.fontSize]="sizeDays + 'px'">
+        {{ templateGroup.value.startDay }}
+      </span>
+    </div>
+    <div class="endDay image {{ templateGroup.value.endDay }}">
+      <span [style.fontSize]="sizeDays + 'px'">
+        {{ templateGroup.value.endDay }}
+      </span>
+    </div>
+    <div class="month image {{ templateGroup.value.month }}">
+      <span [style.fontSize]="sizeMonth + 'px'">
+        {{ templateGroup.value.month }}
+      </span>
+    </div>
+    <div class="year image {{ templateGroup.value.year }}">
+      <span [style.fontSize]="sizeYear + 'px'">
+        {{ templateGroup.value.year }}
+      </span>
+    </div>
+    <div class="text image {{ templateGroup.value.variante }}">
+      <span [style.fontSize]="sizeText + 'px'">
+        {{ templateGroup.value.text }}
+      </span>
+    </div>
+  </div>
 </section>
 
-<section id="bottom">
-  b
+<section id="bottom" [formGroup]="templateGroup">
+  <button mat-raised-button class="download" color="primary" (click)="download()">Télécharger</button>
+  <mat-tab-group mat-align-tabs="center" animationDuration="0s" color="primary">
+    <mat-tab label="Modèles">
+      <mat-radio-group formControlName="variante">
+        <mat-radio-button [value]="Template3Background.IMAGE_PURPLE" color="primary">Variante 1</mat-radio-button>
+        <mat-radio-button [value]="Template3Background.IMAGE_YELLOW" color="primary">Variante 2</mat-radio-button>
+      </mat-radio-group>
+    </mat-tab>
+
+    <mat-tab label="Date">
+      <mat-form-field appearance="outline">
+        <mat-label>Jour début</mat-label>
+        <input matInput formControlName="startDay" />
+      </mat-form-field>
+      &nbsp;au&nbsp;
+      <mat-form-field appearance="outline">
+        <mat-label>Jour fin</mat-label>
+        <input matInput formControlName="endDay" />
+      </mat-form-field>
+      <div class="slider">
+        <div>Taille :</div>
+        <mat-slider
+          (change)="materSliderInput($event, 'days')"
+          thumbLabel
+          min="40"
+          max="120"
+          step="1"
+          [value]="sizeDays"
+          color="primary"
+        ></mat-slider>
+      </div>
+
+      <hr />
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mois</mat-label>
+        <input matInput formControlName="month" />
+      </mat-form-field>
+      <div class="slider">
+        <div>Taille :</div>
+        <mat-slider
+          (change)="materSliderInput($event, 'month')"
+          thumbLabel
+          min="40"
+          max="120"
+          step="1"
+          [value]="sizeMonth"
+          color="primary"
+        ></mat-slider>
+      </div>
+
+      <hr />
+
+      <mat-form-field appearance="outline">
+        <mat-label>Année</mat-label>
+        <input matInput formControlName="year" />
+      </mat-form-field>
+      <div class="slider">
+        <div>Taille :</div>
+        <mat-slider
+          (change)="materSliderInput($event, 'year')"
+          thumbLabel
+          min="40"
+          max="120"
+          step="1"
+          [value]="sizeYear"
+          color="primary"
+        ></mat-slider>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Evènement">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Evènement</mat-label>
+        <input matInput formControlName="event" />
+      </mat-form-field>
+      <div class="slider">
+        <div>Taille :</div>
+        <mat-slider
+          (change)="materSliderInput($event, 'event')"
+          thumbLabel
+          min="15"
+          max="50"
+          step="1"
+          [value]="sizeEvent"
+          color="primary"
+        ></mat-slider>
+      </div>
+    </mat-tab>
+    <mat-tab label="Lieu">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Lieu</mat-label>
+        <input matInput formControlName="place" />
+      </mat-form-field>
+      <div class="slider">
+        <div>Taille :</div>
+        <mat-slider
+          (change)="materSliderInput($event, 'place')"
+          thumbLabel
+          min="15"
+          max="50"
+          step="1"
+          [value]="sizePlace"
+          color="primary"
+        ></mat-slider>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </section>
